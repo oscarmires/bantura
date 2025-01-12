@@ -76,8 +76,7 @@ export function LoginForm({
         </CardContent>
       </Card>
       <div className="text-balance text-center text-xs text-muted-foreground [&_a]:underline [&_a]:underline-offset-4 [&_a]:hover:text-primary  ">
-        Este sitio no cuenta con política de privacidad, términos ni condiciones
-        del servicio.
+        Copyright © 2025 Bantura
       </div>
     </div>
   )

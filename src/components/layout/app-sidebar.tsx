@@ -1,4 +1,4 @@
-import { GalleryVerticalEnd, LogOut } from 'lucide-react'
+import { GalleryVerticalEnd } from 'lucide-react'
 
 import {
   Sidebar,
@@ -14,35 +14,34 @@ import {
   SidebarMenuSubItem,
   SidebarRail,
 } from '@/components/ui/sidebar'
-import { Button } from '@/components/ui/button'
 
 import Link from 'next/link'
 
 import * as React from 'react'
+import LogoutButton from '../auth/logout-button'
 
 // This is sample data.
 const data = {
   navMain: [
     {
       title: 'Inicio',
-      url: '#',
+      url: '/',
       isActive: true,
     },
     {
       title: 'Operaciones',
-      url: '#',
       items: [
         {
           title: 'Depositar efectivo',
-          url: '#',
+          url: '/operaciones/depositar-efectivo',
         },
         {
           title: 'Transferir',
-          url: '#',
+          url: '/operaciones/transferir',
         },
         {
           title: 'Retirar efectivo',
-          url: '#',
+          url: '/operaciones/retirar-efectivo',
         },
       ],
     },
@@ -107,7 +106,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                   <SidebarMenuSub>
                     {item.items.map((item) => (
                       <SidebarMenuSubItem key={item.title}>
-                        <SidebarMenuSubButton asChild isActive={item.isActive}>
+                        <SidebarMenuSubButton asChild>
                           <a href={item.url}>{item.title}</a>
                         </SidebarMenuSubButton>
                       </SidebarMenuSubItem>
@@ -120,9 +119,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         </SidebarGroup>
       </SidebarContent>
       <SidebarFooter>
-        <Button variant="secondary">
-          Salir <LogOut />
-        </Button>
+        <LogoutButton />
       </SidebarFooter>
       <SidebarRail />
     </Sidebar>
