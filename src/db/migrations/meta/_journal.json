@@ -1,0 +1,41 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1736633853260,
+      "tag": "0000_brainy_landau",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1736643170723,
+      "tag": "0001_chemical_toad_men",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1736643262115,
+      "tag": "0002_reflective_ultron",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1736645214796,
+      "tag": "0003_cynical_juggernaut",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1736645272761,
+      "tag": "0004_yielding_champions",
+      "breakpoints": true
+    }
+  ]
+}
