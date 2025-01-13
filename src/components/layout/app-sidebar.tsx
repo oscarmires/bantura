@@ -3,7 +3,6 @@ import { GalleryVerticalEnd } from 'lucide-react'
 import {
   Sidebar,
   SidebarContent,
-  SidebarFooter,
   SidebarGroup,
   SidebarHeader,
   SidebarMenu,
@@ -55,6 +54,16 @@ const data = {
         },
         {
           title: 'Directorio',
+          url: '#',
+        },
+      ],
+    },
+    {
+      title: 'Inversiones',
+      url: '#',
+      items: [
+        {
+          title: 'Calculadora',
           url: '#',
         },
       ],
@@ -118,9 +127,6 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           </SidebarMenu>
         </SidebarGroup>
       </SidebarContent>
-      <SidebarFooter>
-        <LogoutButton />
-      </SidebarFooter>
       <SidebarRail />
     </Sidebar>
   )

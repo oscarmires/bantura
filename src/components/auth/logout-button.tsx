@@ -15,7 +15,7 @@ export default function LogoutButton() {
   }
 
   return (
-    <Button variant="secondary" onClick={handleLogout} disabled={isLoading}>
+    <Button variant="ghost" onClick={handleLogout} disabled={isLoading}>
       Salir <LogOut />
     </Button>
   )

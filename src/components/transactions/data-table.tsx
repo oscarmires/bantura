@@ -24,6 +24,7 @@ import {
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { useState } from 'react'
+import { SelectFilter } from '../select-filter'
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[]
@@ -52,17 +53,33 @@ export function DataTable<TData, TValue>({
     },
   })
 
+  const accounts = [
+    {
+      value: '1000',
+      label: '1000 (Cheques)',
+    },
+    {
+      value: '1001',
+      label: '1001 (Inversión)',
+    },
+    {
+      value: '1002',
+      label: '1002 (Cheques)',
+    },
+  ]
+
   return (
     <div>
-      <div className="flex items-center py-4">
+      <div className="flex items-center py-4 gap-3">
         <Input
-          placeholder="Filter emails..."
+          placeholder="Filtrar por concepto"
           value={(table.getColumn('email')?.getFilterValue() as string) ?? ''}
           onChange={(event) =>
             table.getColumn('email')?.setFilterValue(event.target.value)
           }
           className="max-w-sm"
         />
+        <SelectFilter label="Cuenta" data={accounts} />
       </div>
       <div className="rounded-md border">
         <Table>
