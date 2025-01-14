@@ -6,12 +6,12 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
-import { Coins } from 'lucide-react'
+import { HandCoins } from 'lucide-react'
 
 export default function Page() {
   const instructionLines = [
-    'Prepara la cantidad exacta en efectivo (normalmente Bantura no tiene cambio).',
-    'Acércate con un representante de Bantura y entrégale el efectivo.',
+    'Preferentemente, avísanos sobre tu retiro con suficiente anticipación.',
+    'Acércate con un representante de Bantura para recibir tu efectivo.',
     'Por último, revisa que hayas recibido to recibo en tu email.',
   ]
 
@@ -21,11 +21,11 @@ export default function Page() {
         <Card className="w-[350px]">
           <CardHeader className="border-b">
             <CardTitle className="flex justify-between">
-              Depósito de efectivo
-              <Coins />
+              Retiro de efectivo
+              <HandCoins />
             </CardTitle>
             <CardDescription>
-              Sigue estas indicaciones para depositar a tu cuenta
+              Sigue estas indicaciones para retirar dinero de tu cuenta
             </CardDescription>
           </CardHeader>
           <CardContent>

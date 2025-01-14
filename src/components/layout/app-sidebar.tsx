@@ -17,7 +17,6 @@ import {
 import Link from 'next/link'
 
 import * as React from 'react'
-import LogoutButton from '../auth/logout-button'
 
 // This is sample data.
 const data = {
@@ -50,7 +49,7 @@ const data = {
       items: [
         {
           title: 'Mis cuentas',
-          url: '#',
+          url: '/cuentas/mis-cuentas',
         },
         {
           title: 'Directorio',
