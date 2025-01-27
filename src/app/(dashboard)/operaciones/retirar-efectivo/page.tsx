@@ -1,4 +1,3 @@
-import { P } from '@/components/typography'
 import {
   Card,
   CardContent,

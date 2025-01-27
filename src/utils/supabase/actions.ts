@@ -48,7 +48,7 @@ export async function login(
     }
   }
 
-  // revalidatePath('/', 'layout')
+  revalidatePath('/', 'layout')
   redirect('/')
 }
 

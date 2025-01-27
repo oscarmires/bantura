@@ -1,85 +1,76 @@
 'use client'
 
 import { ColumnDef } from '@tanstack/react-table'
-import { MoreHorizontal, ArrowUpDown } from 'lucide-react'
+import { Button } from '../ui/button'
+import { ArrowUpDown } from 'lucide-react'
 
-import { Button } from '@/components/ui/button'
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
-
-// This type is used to define the shape of our data.
-// You can use a Zod schema here if you want.
-export type Payment = {
+export type Transaction = {
   id: string
-  amount: number
-  status: 'pending' | 'processing' | 'success' | 'failed'
-  email: string
+  credit: number
+  debit: number
+  description: string
+  timestamp: Date
+  account: string
 }
 
-export const columns: ColumnDef<Payment>[] = [
+export const columns: ColumnDef<Transaction>[] = [
   {
-    accessorKey: 'status',
-    header: 'Status',
-  },
-  {
-    accessorKey: 'email',
+    accessorKey: 'timestamp',
     header: ({ column }) => {
       return (
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
         >
-          Email
+          Fecha
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       )
     },
+    cell: ({ row }) => {
+      const timestamp = row.getValue('timestamp') as Date
+      return new Intl.DateTimeFormat('es-MX', {
+        day: '2-digit',
+        month: 'long',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false,
+      }).format(timestamp)
+    },
+    sortingFn: 'datetime',
   },
   {
-    accessorKey: 'amount',
-    header: () => <div className="text-right">Amount</div>,
+    accessorKey: 'account',
+    header: 'Cuenta',
+  },
+  {
+    accessorKey: 'description',
+    header: 'Descripción',
+  },
+  {
+    accessorKey: 'debit',
+    header: 'Entrante',
     cell: ({ row }) => {
-      const amount = parseFloat(row.getValue('amount'))
-      const formatted = new Intl.NumberFormat('en-US', {
+      const debit = parseFloat(row.getValue('debit'))
+      const formatted = new Intl.NumberFormat('es-MX', {
         style: 'currency',
         currency: 'MXN',
-      }).format(amount)
+      }).format(debit)
 
       return <div className="text-right font-medium">{formatted}</div>
     },
   },
   {
-    id: 'actions',
+    accessorKey: 'credit',
+    header: 'Saliente',
     cell: ({ row }) => {
-      const payment = row.original
+      const credit = parseFloat(row.getValue('credit'))
+      const formatted = new Intl.NumberFormat('es-MX', {
+        style: 'currency',
+        currency: 'MXN',
+      }).format(credit)
 
-      return (
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className="h-8 w-8 p-0">
-              <span className="sr-only">Open menu</span>
-              <MoreHorizontal className="h-4 w-4" />
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            <DropdownMenuLabel>Actions</DropdownMenuLabel>
-            <DropdownMenuItem
-              onClick={() => navigator.clipboard.writeText(payment.id)}
-            >
-              Copy payment ID
-            </DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>View customer</DropdownMenuItem>
-            <DropdownMenuItem>View payment details</DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
-      )
+      return <div className="text-right font-medium">{formatted}</div>
     },
   },
 ]

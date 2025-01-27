@@ -17,8 +17,8 @@ import {
 
 export default function Page() {
   const accounts = [
-    { number: '1000', balance: 10000.0, isBlocked: false, type: 'Checking' },
-    { number: '1001', balance: 10000.0, isBlocked: true, type: 'Investig' },
+    { number: '1000', balance: 10000.0, isBlocked: false, type: 'Estándar' },
+    { number: '1001', balance: 10000.0, isBlocked: true, type: 'Inversión' },
   ]
 
   return (
@@ -48,14 +48,19 @@ export default function Page() {
                     </div>
                   </AccordionTrigger>
                   <AccordionContent>
-                    Yes. It adheres to the WAI-ARIA design pattern.
+                    <div>Tipo: {account.type}</div>
+                    <div>Saldo: ${account.balance}</div>
+                    <div>Bloqueo*: {account.isBlocked ? 'Sí' : 'Ninguno'}</div>
                   </AccordionContent>
                 </AccordionItem>
               ))}
             </Accordion>
           </CardContent>
           <CardFooter>
-            <P>Lorem ipsum dolor sit amet</P>
+            <p className="text-sm text-muted-foreground">
+              *El bloqueo se activa según las condiciones de la cuenta y detiene
+              todas las operaciones de la cuenta.
+            </p>
           </CardFooter>
         </Card>
       </div>

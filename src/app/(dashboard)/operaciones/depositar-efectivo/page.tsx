@@ -1,4 +1,3 @@
-import { P } from '@/components/typography'
 import {
   Card,
   CardContent,
@@ -12,7 +11,7 @@ export default function Page() {
   const instructionLines = [
     'Prepara la cantidad exacta en efectivo (normalmente Bantura no tiene cambio).',
     'Acércate con un representante de Bantura y entrégale el efectivo.',
-    'Por último, revisa que hayas recibido to recibo en tu email.',
+    'Por último, revisa que hayas recibido tu recibo en tu email.',
   ]
 
   return (
